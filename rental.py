@@ -98,24 +98,45 @@ class Apartment:
                 except ValueError:
                     print("\tInvalid input. Please enter the date in the format: Month Day Year (example: 1 15 2024).")
 
-        print("\tChoose Payment Option:")
-        print("\t[1] Full Payment")
-        print("\t[2] Down Payment")
-        payment_choice = int(input("\tEnter (1-2): "))
+            while True:
+                print("\tWhat type of apartment would you like?")
+                print("\t[1] Studio - $1000")
+                print("\t[2] 1-Bedroom - $2000")
+                print("\t[3] 2-Bedroom - $3000")
+                try:
+                    apartment_type = int(input("\tEnter (1-3): "))
+                    if apartment_type == 1:
+                        self.price = 1000.0
+                        break
+                    elif apartment_type == 2:
+                        self.price = 2000.0
+                        break
+                    elif apartment_type == 3:
+                        self.price = 3000.0
+                        break
+                    else:
+                        print("\tInvalid input. Please choose from (1-3).")
+                except ValueError:
+                    print("\tInvalid input. Please enter a number (1-3).")
 
-        if payment_choice == 1:
-            print(f"\tTotal Payment Amount: ${self.payment}")
-            self.remaining_payment = 0 
-        elif payment_choice == 2:
-            down_payment = float(input("\tEnter down payment amount: $"))
-            if down_payment > self.remaining_payment:
-                print(f"\tYour down payment exceeds the total rental price. Here's your change: ${down_payment - self.remaining_payment}")
-                down_payment = self.remaining_payment 
-            self.remaining_payment -= down_payment  
-            print(f"\tRemaining Payment: ${self.remaining_payment}")
+            print("\tChoose Payment Option:")
+            print("\t[1] Full Payment")
+            print("\t[2] Down Payment")
+            payment_choice = int(input("\tEnter (1-2): "))
 
-        print(f"\n\tYour rental has been successfully confirmed!")
-        print(f"\tYour rental end date is: {self.end_month}/{self.day}/{self.end_year}")
+            if payment_choice == 1:
+                print(f"\tTotal Payment Amount: ${self.payment}")
+                self.remaining_payment = 0 
+            elif payment_choice == 2:
+                down_payment = float(input("\tEnter down payment amount: $"))
+                if down_payment > self.remaining_payment:
+                    print(f"\tYour down payment exceeds the total rental price. Here's your change: ${down_payment - self.remaining_payment}")
+                    down_payment = self.remaining_payment 
+                self.remaining_payment -= down_payment  
+                print(f"\tRemaining Payment: ${self.remaining_payment}")
+
+            print(f"\n\tYour rental has been successfully confirmed!")
+            print(f"\tYour rental end date is: {self.end_month}/{self.day}/{self.end_year}")
 
     def update_rental(self):
         self.name = input("\n\tEnter new Tenant Name: ")
