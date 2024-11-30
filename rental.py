@@ -81,3 +81,12 @@ def main():
         print(f"\tRental Price: ${self.price}")
         print(f"\tTotal Payment: ${self.payment}")
         print(f"\tRemaining Payment: ${self.remaining_payment}") 
+
+    def end_rent(self, apartments):
+        if self.num in apartments:
+            del apartments[self.num]
+            print(f"\n\tApartment {self.num} rental has ended and is now available again!")
+        else:
+            print("\tApartment not found!")
+
+        print("\n\tEnding the rental process. Thank you for using our service!")
