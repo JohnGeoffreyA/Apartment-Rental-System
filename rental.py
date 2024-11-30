@@ -1,9 +1,8 @@
-    def view_apartments(self):
-        print(f"\n\tApartment Number: {self.num}")
-        print(f"\tTenant Name: {self.name}")
-        print(f"\tRent Date: {self.month}/{self.day}/{self.year}")
-        print(f"\tRental End Date: {self.end_month}/{self.day}/{self.end_year}")
-        print(f"\tRental Duration: {self.months} month(s)")
-        print(f"\tRental Price: ${self.price}")
-        print(f"\tTotal Payment: ${self.payment}")
-        print(f"\tRemaining Payment: ${self.remaining_payment}")
+    def end_rent(self, apartments):
+        if self.num in apartments:
+            del apartments[self.num]
+            print(f"\n\tApartment {self.num} rental has ended and is now available again!")
+        else:
+            print("\tApartment not found!")
+
+        print("\n\tEnding the rental process. Thank you for using our service!")
