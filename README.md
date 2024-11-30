@@ -7,7 +7,6 @@ This Apartment Rental Management System is a Python program designed to help man
 
 
 Features
-
 Rent an Apartment: Tenants can choose an available apartment, enter their personal information, select an apartment type (studio, 1-bedroom, or 2-bedroom), and decide on the rental duration. They can also make full or down payments.
 
 Update Rental Information: The system allows users to update tenant information or rental details like the rent date.
