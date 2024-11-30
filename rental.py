@@ -173,5 +173,18 @@ class Apartment:
 
         print("\n\tEnding the rental process. Thank you for using our service!")
 
+def load_apartments():
+    try:
+        with open('apartments_data.json', 'r') as file:
+            data = json.load(file)
+            apartments = {}
+            for num, apartment_data in data.items():
+                apartment = Apartment()
+                apartment.__dict__.update(apartment_data)  
+                apartments[num] = apartment
+            return apartments
+    except FileNotFoundError:
+        return {} 
+
 if __name__ == "__main__":
     main()
