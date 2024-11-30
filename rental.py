@@ -172,6 +172,11 @@ class Apartment:
             print("\tApartment not found!")
 
         print("\n\tEnding the rental process. Thank you for using our service!")
+        
+def save_apartments(apartments):
+    with open('apartments_data.json', 'w') as file:
+        # Convert apartment data to a dictionary and save it as JSON
+        json.dump({num: apartment.__dict__ for num, apartment in apartments.items()}, file, indent=4)
 
 def load_apartments():
     try:
