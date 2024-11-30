@@ -63,6 +63,20 @@ class Apartment:
         self.payment = 0.0
         self.remaining_payment = 0.0
 
+    def rent_apartment(self, apartments):
+            while True:
+                try:
+                    self.num = int(input("\n\tEnter Apartment Number (1-30): "))
+                    if 1 <= self.num <= 30:
+                        if self.num in apartments:
+                            print("\tApartment number is already taken. Please choose another one.")
+                        else:
+                            break  
+                    else:
+                        print("\tPlease choose a number (1-30).")
+                except ValueError:
+                    print("\tInvalid input. Please enter a valid number.")
+
         print("\tChoose Payment Option:")
         print("\t[1] Full Payment")
         print("\t[2] Down Payment")
