@@ -121,8 +121,14 @@ class Apartment:
 
             self.months = int(input("\tEnter rental duration in months: "))
             self.payment = self.price * self.months
-            self.remaining_payment = self.payment  # Initialize remaining payment to total payment
+            self.remaining_payment = self.payment  
             print(f"\tTotal Payment Amount: ${self.payment}")
+
+            total_months = self.month + self.months
+            self.end_year = self.year + (total_months // 12)
+            self.end_month = (self.month + self.months - 1) % 12 + 1
+            if self.end_month == 12 and self.month + self.months > 12:
+                self.end_year += 1
 
             print("\tChoose Payment Option:")
             print("\t[1] Full Payment")
