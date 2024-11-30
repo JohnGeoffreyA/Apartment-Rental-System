@@ -90,3 +90,6 @@ def main():
             print("\tApartment not found!")
 
         print("\n\tEnding the rental process. Thank you for using our service!")
+
+if __name__ == "__main__":
+    main()
