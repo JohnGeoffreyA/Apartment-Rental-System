@@ -77,6 +77,27 @@ class Apartment:
                 except ValueError:
                     print("\tInvalid input. Please enter a valid number.")
 
+            self.name = input("\tEnter Tenant Name: ")
+            while True:
+                try:
+                    self.month, self.day, self.year = map(int, input("\tEnter Rent Date (Month Day Year): ").split())
+
+                    if not (1 <= self.month <= 12):
+                        print("\tInvalid month. Please enter a month (1-12).")
+                        continue
+
+                    if not (1 <= self.day <= 31):
+                        print("\tInvalid day. Please enter a day (1-31).")
+                        continue
+
+                    if self.year <= 2023:
+                        print("\tInvalid year. The year must be 2024 or later.")
+                        continue
+
+                    break
+                except ValueError:
+                    print("\tInvalid input. Please enter the date in the format: Month Day Year (example: 1 15 2024).")
+
         print("\tChoose Payment Option:")
         print("\t[1] Full Payment")
         print("\t[2] Down Payment")
