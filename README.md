@@ -1,6 +1,6 @@
 Apartment Rental Management System
 
-DEMO VIDEO URL:
+DEMO VIDEO URL: https://youtube.com/shorts/_a3CpTWHPYI?si=3U484tC6oQTSziK7
 
 Description
 
