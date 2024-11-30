@@ -67,3 +67,9 @@ def main():
         # Display the rental end date
         print(f"\n\tYour rental has been successfully confirmed!")
         print(f"\tYour rental end date is: {self.end_month}/{self.day}/{self.end_year}")
+
+    def update_rental(self):
+        # Update apartment details
+        self.name = input("\n\tEnter new Tenant Name: ")
+        self.month, self.day, self.year = map(int, input("\tEnter new Rent Date (Month Day Year): ").split())
+        print(f"\tUpdated rental information for apartment {self.num}.")
