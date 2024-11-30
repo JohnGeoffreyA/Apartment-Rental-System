@@ -48,6 +48,21 @@ def main():
             break
         else:
             print("\tInvalid choice. Please try again.")
+
+class Apartment:
+    def __init__(self):
+        self.num = 0
+        self.name = ""
+        self.month = 0
+        self.day = 0
+        self.year = 0
+        self.months = 0
+        self.end_month = 0
+        self.end_year = 0
+        self.price = 0.0
+        self.payment = 0.0
+        self.remaining_payment = 0.0
+
         print("\tChoose Payment Option:")
         print("\t[1] Full Payment")
         print("\t[2] Down Payment")
