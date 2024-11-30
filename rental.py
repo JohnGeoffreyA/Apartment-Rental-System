@@ -119,6 +119,11 @@ class Apartment:
                 except ValueError:
                     print("\tInvalid input. Please enter a number (1-3).")
 
+            self.months = int(input("\tEnter rental duration in months: "))
+            self.payment = self.price * self.months
+            self.remaining_payment = self.payment  # Initialize remaining payment to total payment
+            print(f"\tTotal Payment Amount: ${self.payment}")
+
             print("\tChoose Payment Option:")
             print("\t[1] Full Payment")
             print("\t[2] Down Payment")
