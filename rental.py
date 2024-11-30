@@ -2,9 +2,8 @@ import sys
 import json
 
 def main():
-    apartments = load_apartments()  # Load existing apartments data from the JSON file
+    apartments = load_apartments()
     while True:
-        # Menu options
         print("\n\t\t\t|--------------------------------------------------------------------|")
         print("\t\t\t|                            Apartment Rentals                       |")
         print("\t\t\t|--------------------------------------------------------------------|")
