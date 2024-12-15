@@ -2,10 +2,9 @@ import csv
 
 def main():
     apartments = load_apartments()
-    studio_count = 0
-    one_bedroom_count = 0
-    two_bedroom_count = 0
-    
+    studio_count = 10
+    one_bedroom_count = 10
+    two_bedroom_count = 10
     while True:
         print("\n\t\t\t|--------------------------------------------------------------------|")
         print("\t\t\t|                            Apartment Rentals                       |")
@@ -23,14 +22,15 @@ def main():
 
         if choice == 1:
             apartment = Apartment()
-            apartment.rent_apartment(apartments)
+            apartment.rent_apartment(apartments) 
             apartments[apartment.num] = apartment
+            # Update apartment count after rental
             if apartment.type == "Studio":
-                studio_count += 1
+                studio_count -= 1
             elif apartment.type == "1-Bedroom":
-                one_bedroom_count += 1
+                one_bedroom_count -= 1
             elif apartment.type == "2-Bedroom":
-                two_bedroom_count += 1
+                two_bedroom_count -= 1
         elif choice == 2:
             try:
                 apartment_number = int(input("\n\tEnter the Apartment Number to Update: "))
@@ -44,16 +44,8 @@ def main():
             try:
                 apartment_number = int(input("\n\tEnter the Apartment Number to End Rent: "))
                 if apartment_number in apartments:
-                    
-                    apartment_type = apartments[apartment_number].type
-                    if apartment_type == "Studio":
-                        studio_count -= 1
-                    elif apartment_type == "1-Bedroom":
-                        one_bedroom_count -= 1
-                    elif apartment_type == "2-Bedroom":
-                        two_bedroom_count -= 1
-
-                    apartments[apartment_number].end_rent(apartments)
+                    # Call the end_rent method and update the apartment counts
+                    studio_count, one_bedroom_count, two_bedroom_count = apartments[apartment_number].end_rent(apartments, studio_count, one_bedroom_count, two_bedroom_count)
                 else:
                     print("\tApartment not found!")
             except ValueError:
@@ -65,9 +57,9 @@ def main():
                     apartment.view_apartments()
 
                 print("\n\tAvailable Apartments:")
-                print(f"\tStudio Apartments Available: {10 - studio_count}")
-                print(f"\t1-Bedroom Apartments Available: {10 - one_bedroom_count}")
-                print(f"\t2-Bedroom Apartments Available: {10 - two_bedroom_count}\n")
+                print(f"\tStudio Apartments Available: {studio_count}")
+                print(f"\t1-Bedroom Apartments Available: {one_bedroom_count}")
+                print(f"\t2-Bedroom Apartments Available: {two_bedroom_count}")
                 for i in range(1, 31):
                     if i not in apartments:
                         print(f"\tApartment Number: {i} is available")
@@ -75,7 +67,7 @@ def main():
                 print("\tAll apartments are available!")
         elif choice == 5:
             print("\n\tExiting the program. Goodbye!")
-            save_apartments(apartments)
+            save_apartments(apartments)  
             break
         else:
             print("\tInvalid choice. Please try again.")
@@ -267,13 +259,24 @@ class Apartment:
         print(f"\tApartment Type: {self.type}")
         print(f"\tApartment Features: {self.features}")
 
-    def end_rent(self, apartments):
-    
+    def end_rent(self, apartments, studio_count, one_bedroom_count, two_bedroom_count):
         if self.num in apartments:
+            # Update apartment count before removing the apartment from the dictionary
+            if self.type == "Studio":
+                studio_count += 1
+            elif self.type == "1-Bedroom":
+                one_bedroom_count += 1
+            elif self.type == "2-Bedroom":
+                two_bedroom_count += 1
+
+            # Remove the apartment from the apartments dictionary
             del apartments[self.num]  
             print(f"Apartment {self.num} rental has ended and is now available again!")
         else:
             print(f"Apartment {self.num} not found!")
+
+        # Return updated counts
+        return studio_count, one_bedroom_count, two_bedroom_count
         
 def save_apartments(apartments):
     try:
