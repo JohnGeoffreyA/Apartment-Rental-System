@@ -2,6 +2,9 @@ Apartment Rental Management System
 
 DEMO VIDEO URL: https://youtube.com/shorts/_a3CpTWHPYI?si=3U484tC6oQTSziK7
 
+DEMO VIDEO URL(UPDATED):
+https://youtu.be/-hrB3kt3NhY?si=h5Qvm2oX-7cxVAU0
+
 Description
 
 This Apartment Rental Management System is a Python program designed to help manage apartment rentals. It allows users to rent, update, view, and end the rental of apartments, while also keeping track of payments and rental information. The system supports apartments numbered 1 to 30 and provides options for full or down payments. All apartment details, including rental dates and payment statuses, are saved to a file for future use, ensuring data persistence even after the program ends.
